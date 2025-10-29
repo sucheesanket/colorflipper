@@ -1,9 +1,12 @@
 let color=document.querySelector("#color");
 let button=document.querySelector("#btn");
+let currentcolor="#ffffff";
 button.addEventListener("click",()=>{
    let randomcolor=getRandomColor();
    document.body.style.backgroundColor=randomcolor;
    color.textContent=randomcolor;
+
+   currentcolor=randomcolor;
 })
 function getRandomColor(){
     let letters="0123456789ABCDEF";
@@ -14,4 +17,10 @@ function getRandomColor(){
     }
     return hex;
 }
+
+let copy=document.querySelector("#copy");
+copy.addEventListener("click",()=>{
+    navigator.clipboard.writeText(currentcolor);
+    alert("Color Copied : "+ currentcolor);
+})
 
